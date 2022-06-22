@@ -1,0 +1,47 @@
+.keyboard-base {
+    padding: 20px;
+    background-color: rgb(197, 197, 197);
+    border-radius: 10px;
+}
+
+.key {
+    display: inline;
+    min-width: 50px;
+    background-color: rgb(243, 243, 243);
+    border: 2px solid black;
+    border-radius: 5px;
+    font-size: 20px;
+    text-align: center;
+    padding-top: 17px;
+}
+
+.line {
+    margin: 10px;
+    display: flex; /* or inline-flex */
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    gap: 10px;
+}
+.space {
+    min-width: 200px;
+}
+.delete,
+.return {
+    min-width: 120px;
+}
+.key:hover {
+    border: 2px solid black;
+    background-color: rgb(241, 241, 210);
+}
+.key:active {
+    background-color: rgb(247, 247, 137);
+    border: 2px solid black;
+}
+
+.redline {
+    position: absolute;
+    width: 2px;
+    margin-top: -1px;
+    background-color: red;
+}

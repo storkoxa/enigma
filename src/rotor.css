@@ -1,0 +1,28 @@
+.rotors {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    gap: 20px;
+    margin: 10px;
+}
+
+.rotor {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+
+    background-color: rgb(199, 194, 194);
+    width: 50px;
+    border: 1px solid black;
+}
+
+.rotorItem {
+    height: 25px;
+    text-align: center;
+    border: 1px solid black;
+}
+
+.main {
+    background-color: rgb(115, 223, 133);
+}
