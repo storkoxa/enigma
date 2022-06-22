@@ -2,7 +2,6 @@ import React  from "react";
 import "./keyboard.css";
 import Xarrow from "react-xarrows";
 
-const boxStyle = {border: "grey solid 2px", borderRadius: "10px", padding: "5px"};
 const arrowProps = {
     dashness:{ animation: 1 },
     path: "grid",
@@ -30,10 +29,14 @@ class Keyboard extends React.Component {
     }
 
     keyPressed(from) {
-        console.log(
-            `Keyboard: KEY PRESSED: ${from} replace with ${this.getPair(from)}`
-        );
-        this.props.onPressKey(this.getPair(from));
+        let upper = from.toUpperCase()
+
+        if (this.letters.flat().includes(upper)) {
+            console.log(
+                `Keyboard: KEY PRESSED: ${upper} replace with ${this.getPair(from)}`
+            );
+            this.props.onPressKey(this.getPair(upper));
+        }
     }
 
     getPair(from) {
@@ -47,7 +50,7 @@ class Keyboard extends React.Component {
             if ((pairs.length >= 2) && (letters.includes(pairs[0])) && (letters.includes(pairs[1]))) {
                 mapLetter.set(pairs[0], pairs[1])
                 mapLetter.set(pairs[1], pairs[0])
-            } else if ((pairs.length == 1) && (letters.includes(pairs[0]))) {
+            } else if ((pairs.length === 1) && (letters.includes(pairs[0]))) {
                 mapLetter.set(pairs[0], pairs[0])
             }
         })
@@ -63,7 +66,7 @@ class Keyboard extends React.Component {
         let plugsList = null
 
         if (this.state.showPlugs) {
-            let uniqueKeys = Array.from(this.state.plugs.keys()).reduce((acc, k)  => { if (acc.indexOf(this.state.plugs.get(k)) == -1) acc.push(k); return acc } , [])
+            let uniqueKeys = Array.from(this.state.plugs.keys()).reduce((acc, k)  => { if (acc.indexOf(this.state.plugs.get(k)) === -1) acc.push(k); return acc } , [])
             let uniquePairs = uniqueKeys.map(k => k + this.state.plugs.get(k)).join(" ")
             plugsList = (<div>Edit: <input type={"text"} defaultValue={uniquePairs}  onChange={this.handleChange} /></div>)
             plugs = uniqueKeys.map((k, i) => {
@@ -75,15 +78,15 @@ class Keyboard extends React.Component {
         return (
 
             <div className="allKeyboard">
-                <div class="plugs">
+                <div className="plugs">
                     <div>
-                        <input className="checkbox" type="checkbox"  checked={this.state.showPlugs} />
+                        <input readOnly className="checkbox" type="checkbox"  checked={this.state.showPlugs} />
                         <label htmlFor="toggle" className="switch" onClick={() => { this.setState({showPlugs: !this.state.showPlugs }) }}></label>
                         Show plugs
                     </div>
                     {plugsList}
                 </div>
-                <div className="keyboard-base">
+                <div tabIndex={0} className="keyboard-base" onKeyPress={(e) => this.keyPressed(e.key) }>
                     {this.letters.map((line, index) => {
                         return (
                             <div className="line" key={index}>
