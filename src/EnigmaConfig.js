@@ -14,7 +14,7 @@ const roterV = createRandomArray(26, 5);
 
 const reflector = createRandomPairedArray(26, 10);
 
-const plugs = [];
+const plugs = "AB IK";
 
 export const config = {
     rotorsPositions: [23, 25, 12],

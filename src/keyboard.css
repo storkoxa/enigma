@@ -2,17 +2,29 @@
     padding: 20px;
     background-color: rgb(197, 197, 197);
     border-radius: 10px;
+
 }
 
+.innerKey {
+    background-color: rgb(255,0,0);
+    width: 1px;
+    height: 1px;
+    position: absolute;
+}
 .key {
-    display: inline;
+
+    width: 50px;
     min-width: 50px;
     background-color: rgb(243, 243, 243);
     border: 2px solid black;
     border-radius: 5px;
     font-size: 20px;
     text-align: center;
-    padding-top: 17px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
 }
 
 .line {

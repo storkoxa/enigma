@@ -51,6 +51,7 @@ class Enigma extends React.Component {
                     ref={this.keyBoard}
                     onPressKey={this.onKeyboardPressKey}
                     letters={this.config.letters}
+                    plugs={this.config.plugs}
                 />
             </div>
         );
