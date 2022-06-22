@@ -39,6 +39,7 @@ class Keyboard extends React.Component {
     getPair(from) {
         return this.state.plugs.has(from) ? this.state.plugs.get(from) : from;
     }
+
     mapPlugs(list)  {
         let mapLetter = new Map();
         let letters = this.letters.flat()
@@ -73,9 +74,15 @@ class Keyboard extends React.Component {
 
         return (
 
-            <div>
-                <input type="checkbox" onChange={() => { this.setState({showPlugs: !this.state.showPlugs }) }} checked={this.state.showPlugs} /> Show Plugs
-                {plugsList}
+            <div className="allKeyboard">
+                <div class="plugs">
+                    <div>
+                        <input className="checkbox" type="checkbox"  checked={this.state.showPlugs} />
+                        <label htmlFor="toggle" className="switch" onClick={() => { this.setState({showPlugs: !this.state.showPlugs }) }}></label>
+                        Show plugs
+                    </div>
+                    {plugsList}
+                </div>
                 <div className="keyboard-base">
                     {this.letters.map((line, index) => {
                         return (
@@ -95,13 +102,6 @@ class Keyboard extends React.Component {
                             </div>
                         );
                     })}
-                    <div className="line">
-                        <div className="key space" onClick={this.addLine}>
-                            Space
-                        </div>
-                        <div id="test1" className="key delete">Delete</div>
-                        <div id="test2" className="key return">Return</div>
-                    </div>
                 </div>
                 {plugs}
             </div>
