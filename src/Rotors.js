@@ -5,7 +5,7 @@ import "./rotor.css";
 class Rotors extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { rotors: this.props.rotorsPositions, rotationFinished: true };
+        this.state = { rotors: this.props.rotorPositions, rotationFinished: true };
         this.rotorsRefs = this.state.rotors.map(() => React.createRef());
         this.reflector = this.props.reflector;
     }
@@ -46,17 +46,18 @@ class Rotors extends React.Component {
 
     rotate(position) {
         let rotors = [...this.state.rotors];
+        let notchPosition = this.props.rotors[position].notchPosition;
         let item = rotors[position];
         item = (item + 1) % 26;
         rotors[position] = item;
         console.log(`Rotate ROTOR #${position} = to ${item}`);
         this.setState({ rotors }, (results) => {
             let nextPosition = position + 1;
-            if (nextPosition >= this.state.rotors.length || item !== 0) {
+            if (nextPosition >= this.state.rotors.length || item !== notchPosition) {
                 this.setState({ rotationFinished: true }, () => {
                     this.getSecretKey();
                 });
-            } else if (item === 0) this.rotate(position + 1);
+            } else if (item === notchPosition) this.rotate(position + 1);
         });
     }
 
@@ -70,6 +71,7 @@ class Rotors extends React.Component {
                             key={index}
                             value={rotor}
                             sequence={this.props.rotors[index]}
+                            notch={this.props.rotors[index].notchPosition}
                         />
                     );
                 })}

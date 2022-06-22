@@ -46,7 +46,7 @@ class Enigma extends React.Component {
                 <Rotors
                     reflector={this.config.reflector}
                     rotors={this.config.rotors}
-                    rotorsPositions={this.config.rotorsPositions}
+                    rotorPositions={this.config.rotorPositions}
                     keyPressed={this.state.lastKey}
                     lastTimeKeyPressed={this.state.lastTimeKeyPressed}
                     onRotorsFinish={this.onRotorsFinish}
