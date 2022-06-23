@@ -61,13 +61,13 @@ class Rotor extends React.Component {
         return (
             <div className="rotor">
                 <div className="rotorItem" onClick={() => this.rotate(-1, false)}><i className="arrowUp"></i> </div>
-                <div className="rotorItem">{circularNumber(this.state.rotation + 24, 26) + 1}</div>
-                <div className="rotorItem">{circularNumber(this.state.rotation + 25, 26) + 1}</div>
+                <div className="rotorItem">{circularNumber(this.state.rotation + 28, 26) + 1}</div>
+                <div className="rotorItem">{circularNumber(this.state.rotation + 27, 26) + 1}</div>
                 <div className="main rotorItem">
                     {circularNumber(this.state.rotation + 26, 26) + 1}
                 </div>
-                <div className="rotorItem">{circularNumber(this.state.rotation + 27, 26) + 1}</div>
-                <div className="rotorItem">{circularNumber(this.state.rotation + 28, 26) + 1}</div>
+                <div className="rotorItem">{circularNumber(this.state.rotation + 25, 26) + 1}</div>
+                <div className="rotorItem">{circularNumber(this.state.rotation + 24, 26) + 1}</div>
                 <div className="rotorItem" onClick={() => this.rotate(+1, false)}><i className="arrowDown"></i> </div>
             </div>
         );
