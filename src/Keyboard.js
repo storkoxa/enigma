@@ -40,7 +40,8 @@ class Keyboard extends React.Component {
     }
 
     getPair(from) {
-        return this.state.plugs.has(from) ? this.state.plugs.get(from) : from;
+        let upper = from.toUpperCase()
+        return this.state.plugs.has(upper) ? this.state.plugs.get(upper) : upper;
     }
 
     mapPlugs(list)  {

@@ -8,11 +8,11 @@ const letters = [
 ];
 
 
-const rotorI = RotorObj(createRandomArray(26, 1), 24)
-const rotorII = RotorObj(createRandomArray(26, 2), 1)
-const rotorIII = RotorObj(createRandomArray(26, 3), 14)
-const rotorIV = RotorObj(createRandomArray(26, 4), 24)
-const rotorV = RotorObj(createRandomArray(26, 5), 24)
+const rotorI = RotorObj(createRandomArray(26, 1), 1, 0)
+const rotorII = RotorObj(createRandomArray(26, 2), 6, 5)
+const rotorIII = RotorObj(createRandomArray(26, 3), 7, 6)
+const rotorIV = RotorObj(createRandomArray(26, 4), 24, 3 )
+const rotorV = RotorObj(createRandomArray(26, 5), 24, 4)
 
 const reflector = createRandomPairedArray(26, 10);
 

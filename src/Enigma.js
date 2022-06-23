@@ -11,9 +11,11 @@ class Enigma extends React.Component {
         this.state = { lastSignal: "", output: "", encrypted: "", original: "", canPress: true };
         this.keyBoard = React.createRef();
         this.sentence = "";
+
     }
 
     onKeyboardPressKey = (letter) => {
+
         if (this.state.canPress) {
             this.setState({
                 canPress: false,
@@ -41,12 +43,10 @@ class Enigma extends React.Component {
         return (
             <div className="Enigma">
                 <Display encrypted={this.state.encrypted} original={this.state.original}/>
-
                 <KeyBulb display={this.state.output} />
                 <Rotors
                     reflector={this.config.reflector}
                     rotors={this.config.rotors}
-                    rotorPositions={this.config.rotorPositions}
                     keyPressed={this.state.lastKey}
                     lastTimeKeyPressed={this.state.lastTimeKeyPressed}
                     onRotorsFinish={this.onRotorsFinish}
